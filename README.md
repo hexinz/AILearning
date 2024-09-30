@@ -115,7 +115,7 @@ $V = (-1)^{sign} \times 2^{exponent-15} \times 1.fraction(二进制)$（FP16）
 sign 为符号位 s，占 1 bit，用来表示正负号；exponent 为指数偏移值 k，占 8 bits，用来表示其是 2 的多少次幂；fraction 是分数值（有效数字） M，占 23 bits，用来表示该浮点数的数值大小。正浮点数最小值为1\*2-126 = 1.1755\*10-38；最大值为2127 \*(1+(223-1)/ 223)= 3.4028*10-38。加法器：1.对阶，将两个小数的exponent化为相同的，小阶化大阶，尾数右移；2.尾数相加；3.化为FP16标准； 乘法器：1.阶数相加；2.尾数相乘；3.化为FP16标准。
 
 例子：
-$$0.75 = 1.1(2) * 2-1，0.1875 = 1.1(2) * 2-3，sum=(1.1+0.011)* 2-1=(1+7/8) * 2-1=0.9375$$
+$$0.75 = 2^{-1} \times 1.1_{(2)}，0.1875 = 2^{-3} \times 1.1_{(2)}，sum=(1.1+0.011) \times 2-1=(1+7/8) \times 2-1=0.9375$$
 
 将 FP32 值域 [−1,1] 映射到 INT8 值域 [0,255]例子：[一文搞懂模型量化算法 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/505570612)
 
@@ -161,7 +161,7 @@ LLE让两个相近的点靠近，t-SNE不仅让两个相近的点靠近，也让
 
 MLA(Multi-Head Latent Attention)通过低秩联合压缩key和value来减少kv cache。
 
-LoRA(Low-Rank Adaptation of Large Language Models)是一种adapter，通过在transformer每一层注入可训练的秩分解矩阵（rank decomposition matrices Wd×k+Bd×rAr×kα），微调整个模型的参数。
+LoRA(Low-Rank Adaptation of Large Language Models)是一种adapter，通过在transformer每一层注入可训练的秩分解矩阵（rank decomposition matrices $W^{d \times k}+B^{d \times r}A^{r \times k}\alpha$），微调整个模型的参数。
 
  
 
