@@ -221,6 +221,10 @@ Sentence Window Retrieval
 Auto-merging Retrieval
 
 
+# Linear Attention
+
+RNN: $y_k = Cx_k h_k = Ah_{k-1} + Bx_k$
+mamba(SSM): $y_k = Cx_k h_k' = Ah_k + Bx_k$
 
 
 
